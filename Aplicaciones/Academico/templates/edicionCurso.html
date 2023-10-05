@@ -1,0 +1,73 @@
+{% extends "./base.html"%}
+
+{%block title%}
+Edicion
+{%endblock%}
+
+{%block body%}
+
+<div class="card offset-md-4" style="width: 18rem;">
+    <div class="card-header py-2 text-center text-uppercase ">
+        <h2>Cuadro de Cambios</h2>
+    </div>
+
+    <div class="card-body">
+        <form action="/cursoEditado/" method="POST">{% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" id="textCodigo" value="{{Cursos.codigo}}" name="txtCodigo" class="form-control"
+                    minlength="6" maxlength="6" readonly required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="textNombre" value="{{Cursos.nombre}}" name="txtNombre" class="form-control"
+                    maxlength="50" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="numCreditos" value="{{Cursos.creditos}}" name="numCreditos" class="form-control"
+                    min="1" max="9" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block text-white">Confirmar Cambios</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!--
+<div class="modal-dialog modal-lg" id="edicion" role="document">
+    <div class="modal-content">
+        <form action="/edicionCurso/" method="POST">{% csrf_token %}
+            <div class="modal-header">
+                <h2 class="modal-title">Edicion del Curso</h2>
+                <button class="close" type="button" data-dismiss="modal" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <input type="text" id="textCodigo" value="{{Curso.codigo}}" name="txtCodigo" class="form-control"
+                        placeholder="Codigo" minlength="6" maxlength="6" readonly required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="textNombre" value="{{Curso.Nombre}}" name="txtNombre" class="form-control"
+                        placeholder="Nombre" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="numCreditos" value="{{Curso.Creditos}}" name="numCreditos"
+                        class="form-control" min="1" max="9" value="1" required>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" type="submit">Confirmar Cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+ -->
+
+{%endblock body%}

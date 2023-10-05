@@ -1,0 +1,75 @@
+{% extends 'index_master.html' %}
+
+{% block title%} Listado de Usuarios {%endblock%}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row p-2 m-4">
+
+        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+            <div class="container">
+                <h1 class="mb-4 pb-2 border-bottom">Listado de Usuarios</h1>
+            </div>
+            <div class="table-responsive py-2">
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                #iD
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+                            <th>
+                                Telefono
+                            </th>
+                            <th>
+                                Fecha de Nacimiento
+                            </th>
+                            <th>
+                                Fecha de Registro
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for u in usuarios%}
+                        <tr>
+                            <td>
+                                {{u.id}}
+                            </td>
+                            <td>
+                                {{u.nombre}}
+                            </td>
+                            <td>
+                                {{u.apellido}}
+                            </td>
+                            <td>
+                                {{u.correo}}
+                            </td>
+                            <td>
+                                {{u.telefono}}
+                            </td>
+                            <td>
+                                {{u.f_nacimiento}}
+                            </td>
+                            <td>
+                                {{u.f_registro}}
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'index_master.html' %}
+
+{% block title%} Nuevo Usuario {%endblock%}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="container">
+        <h1 class="mb-4 pb-2 border-bottom">Agregar un Nuevo Usuario</h1>
+    </div>
+    <form action="/userRegistrado/" method="POST">{% csrf_token %}
+        <div class="form-group row">
+            <label for="txtNombre" class="col-4 col-form-label">
+                <h2>Nombre</h2>
+            </label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-address-card"></i>
+                    </div>
+                    <input id="txtNombre" name="txtNombre" placeholder="First Name" type="text" required="required"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtApellido" class="col-4 col-form-label">
+                <h2>Apellido</h2>
+            </label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-address-card-o"></i>
+                    </div>
+                    <input id="txtApellido" name="txtApellido" placeholder="First Lastname" type="text"
+                        required="required" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtEmail" class="col-4 col-form-label">
+                <h2>Correo</h2>
+            </label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <input id="txtEmail" name="txtEmail" placeholder="@gmail.com" type="text" required="required"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtTelefono" class="col-4 col-form-label">
+                <h2>Telefono</h2>
+            </label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-phone-square"></i>
+                    </div>
+                    <input id="txtTelefono" name="txtTelefono" placeholder="+ 502" type="text" required="required"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtNacimiento" class="col-4 col-form-label">
+                <h2>Fecha de Nacimiento</h2>
+            </label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-birthday-cake"></i>
+                    </div>
+                    <input id="txtNacimiento" name="txtNacimiento" placeholder="dd/mm/yyyy" type="date"
+                        required="required" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-primary">Guardar Registro</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /page content -->
+{% endblock %}
