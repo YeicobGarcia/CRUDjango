@@ -8,9 +8,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>Gentelella Alela! | </title>
+
+  <title>ILP</title>
 
   <!-- Bootstrap -->
   <link href="{% static '/FrWork/admin_lte/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -67,13 +67,20 @@
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="{% url 'ListaUsuarios'%}"><i class="fa fa-home"></i> Home</a></li>
                 <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="listUser/"><i class="fa fa-user"></i>Registrados</a></li>
-                    <li><a href="registroUser/"><i class="fa fa-plus"></i>Agregar</a></li>
-                    <li><a href="Create.html"><i class="fa fa-edit"></i>Editar</a></li>
-                    <li><a href="form_wizards.html"><i class="fa fa-trash"></i>Eliminar</a></li>
+                    <li><a href="{% url 'ListaUsuarios'%}"><i class="fa fa-user"></i>Registrados</a></li>
+                    <li><a href="{%url 'AgregarUsuario'%}"><i class="fa fa-plus"></i>Agregar</a></li>
+                    <!--<li><a href="{%url 'EdicionUsuario'%}"><i class="fa fa-edit"></i>Editar</a></li>-->
+
+                    <form id="editarUsuarioForm" action="{% url 'EdicionUsuario' %}" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="id" id="id" value="1"> <!-- Este valor puede ser dinámico -->
+                      <li><button class="btn" type="submit"><i class="fa fa-edit"></i>Editar</button></li>
+                    </form>
+
+                    <li><a href="{%url 'EliminarUsuario'%}"><i class="fa fa-trash"></i>Eliminar</a></li>
                   </ul>
                 </li>
               </ul>
@@ -213,6 +220,7 @@
 
   <!-- jQuery -->
   <script src="{% static '/FrWork/admin_lte/vendors/jquery/dist/jquery.min.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap -->
   <script src="{% static '/FrWork/admin_lte/vendors/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
   <!-- FastClick -->
@@ -251,6 +259,7 @@
 
   <!-- Custom Theme Scripts -->
   <script src="{% static '/FrWork/admin_lte/build/js/custom.min.js' %}"></script>
+  <script src="{% static 'js/message.js' %}"></script>
 
 </body>
 

@@ -40,7 +40,7 @@ btnEliminacion.forEach(btn => {
 })();
 */
 
-function eliminar(id){
+/*function eliminar(id){
     Swal.fire({
         title: '¿Estas seguro?',
         text: "!No podras revertir este cambio!",
@@ -79,9 +79,23 @@ function eliminar(id){
                         })
                     }
                 }
-                */
+                
             })
         }
     })
 }
-
+*/
+function cargarDatosUsuario(SelectId) {
+    // Hacer una petición AJAX para enviar el ID al servidor
+    $.ajax({
+        type: 'POST',
+        url: '/editUser/',
+        data: {
+            'id': SelectId,
+            'csrfmiddlewaretoken': '{{ csrf_token }}' // Asegúrate de incluir el token CSRF
+        },
+        success: function(data) {
+            console.log('ID enviado con éxito');
+        }
+    });
+}
